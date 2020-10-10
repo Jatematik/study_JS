@@ -37,5 +37,7 @@ function opNumbers(num) {
     return result;
 }
 console.log(opNumbers(num));
-num **=2;
+num = opNumbers(num);
+num = num ** 3;
+console.log(num);
 console.log(String(num).slice(0, 2));
