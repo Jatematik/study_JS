@@ -22,3 +22,20 @@ console.log(addExpenses.split(', '));
 
 let budgetDay = money/30;
 console.log(budgetDay);
+
+// УСЛОЖНЕННОЕ ЗАДАНИЕ УРОКА 2
+
+let num = 266219;
+function opNumbers(num) {
+    if (!num)
+        return 0;
+    var result = 1;
+    while (num) {
+        result *= num % 10;
+        num = Math.floor(num / 10);
+    }
+    return result;
+}
+console.log(opNumbers(num));
+num **=2;
+console.log(String(num).slice(0, 2));
