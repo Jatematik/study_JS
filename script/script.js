@@ -1,6 +1,10 @@
 'use strict';
 
-let money = 25000;
+let isNumber = function(n){
+    return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
+let money;
 let income = 'Фриланс';
 let addExpenses = 'Квартира, продукты, кошка';
 let deposit = true;
@@ -8,34 +12,56 @@ let mission = 100000;
 let period = 6;
 let budgetDay = money/30;
 
+let start = function(){
+    do {
+        money = prompt('Ваш месячный доход?');
+    }
+    while (!isNumber(money));
+};
+start();
+
 console.log(typeof money);
 console.log(typeof income);
 console.log(typeof deposit);
 addExpenses.toLowerCase();
 console.log(addExpenses.split(', '));
-console.log(budgetDay);
 
-money = Number(prompt('Ваш месячный доход?'));
 addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 deposit = confirm('Есть ли у вас депозит в банке?');
-let expenses1 = prompt('Введите обязательную статью расходов');
-let amount1 = Number(prompt('Во сколько это обойдется?'));
-let expenses2 = prompt('Введите обязательную статью расходов');
-let amount2 = Number(prompt('Во сколько это обойдется?'));
+
+let expenses = [];
 
 let getExpensesMonth = function(){
-    return amount1 + amount2;
+    let sum = 0;
+    let b = 0;
+    for(let i = 0; i < 2; i++){
+        expenses[i] = prompt('Введите обязательную статью расходов');
+        do {
+            b = +prompt('Во сколько это обойдется?');
+        }
+        while (!isNumber(b));
+        sum += b;
+    }
+    console.log(expenses);
+    return sum;
 };
-console.log(getExpensesMonth());
+let expensesAmount = getExpensesMonth();
+
+console.log(expensesAmount);
 
 let getAccumulatedMonth = function(){
-    return money - getExpensesMonth();
+    return money - expensesAmount;
 };
 
 let accumulatedMonth  = getAccumulatedMonth();
 
 let getTargetMonth = function(){
-    return Math.ceil(mission/accumulatedMonth);
+    let result = 0;
+    result = Math.ceil(mission/accumulatedMonth);
+    if (result < 0) {
+        return ('Цель не будет достигнута');
+    }
+    return ('Цель будет достигнута через: ' + result + ' месяцев');
 };
 console.log(getTargetMonth());
 
