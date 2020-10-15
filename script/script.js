@@ -7,10 +7,13 @@ let isNumber = function(n){
 let money;
 let income = 'Фриланс';
 let addExpenses = 'Квартира, продукты, кошка';
+addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 let deposit = true;
+deposit = confirm('Есть ли у вас депозит в банке?');
 let mission = 100000;
 let period = 6;
 let budgetDay = money/30;
+let expenses = [];
 
 let start = function(){
     do {
@@ -25,11 +28,6 @@ console.log(typeof income);
 console.log(typeof deposit);
 addExpenses.toLowerCase();
 console.log(addExpenses.split(', '));
-
-addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-deposit = confirm('Есть ли у вас депозит в банке?');
-
-let expenses = [];
 
 let getExpensesMonth = function(){
     let sum = 0;
