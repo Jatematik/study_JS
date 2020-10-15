@@ -1,12 +1,19 @@
 'use strict';
 
 let money = 25000;
+money = Number(prompt('Ваш месячный доход?'));
 let income = 'Фриланс';
 let addExpenses = 'Квартира, продукты, кошка';
+addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 let deposit = true;
+deposit = confirm('Есть ли у вас депозит в банке?');
 let mission = 100000;
 let period = 6;
 let budgetDay = money/30;
+let expenses1 = prompt('Введите обязательную статью расходов');
+let amount1 = Number(prompt('Во сколько это обойдется?'));
+let expenses2 = prompt('Введите обязательную статью расходов');
+let amount2 = Number(prompt('Во сколько это обойдется?'));
 
 console.log(typeof money);
 console.log(typeof income);
@@ -14,14 +21,6 @@ console.log(typeof deposit);
 addExpenses.toLowerCase();
 console.log(addExpenses.split(', '));
 console.log(budgetDay);
-
-money = Number(prompt('Ваш месячный доход?'));
-addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-deposit = confirm('Есть ли у вас депозит в банке?');
-let expenses1 = prompt('Введите обязательную статью расходов');
-let amount1 = Number(prompt('Во сколько это обойдется?'));
-let expenses2 = prompt('Введите обязательную статью расходов');
-let amount2 = Number(prompt('Во сколько это обойдется?'));
 
 let getExpensesMonth = function(){
     return amount1 + amount2;
