@@ -5,13 +5,6 @@ let isNumber = function(n){
 };
 
 let money;
-let income = 'Фриланс';
-let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-let deposit = confirm('Есть ли у вас депозит в банке?');
-let mission = 100000;
-let period = 6;
-let budgetDay = money/30;
-let expenses = [];
 
 let start = function(){
     do {
@@ -20,6 +13,14 @@ let start = function(){
     while (!isNumber(money));
 };
 start();
+
+let income = 'Фриланс';
+let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+let deposit = confirm('Есть ли у вас депозит в банке?');
+let mission = 100000;
+let period = 6;
+let budgetDay = money/30;
+let expenses = [];
 
 console.log(typeof money);
 console.log(typeof income);
@@ -33,10 +34,11 @@ let getExpensesMonth = function(){
     for(let i = 0; i < 2; i++){
         expenses[i] = prompt('Введите обязательную статью расходов');
         do {
-            b = +prompt('Во сколько это обойдется?');
+            b = prompt('Во сколько это обойдется?');
         }
         while (!isNumber(b));
-        sum += b;
+        let c = Number(b);
+        sum += c;
     }
     console.log(expenses);
     return sum;
