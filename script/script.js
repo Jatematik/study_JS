@@ -42,8 +42,7 @@ let appData = {
     },
     getExpensesMonth: function (){
         for (let key in appData.expenses) {
-            let c = Number(appData.expenses[key]);
-            appData.expensesMonth += c;
+            appData.expensesMonth += Number(appData.expenses[key]);
         }
         return appData.expensesMonth;
     },
