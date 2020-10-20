@@ -21,6 +21,10 @@ let appData = {
     deposit: false,
     mission: 100000,
     period: 5,
+    budget: money,
+    budgetDay: 0,
+    budgetMonth: 0,
+    expensesMonth: 0,
     asking: function(){
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
         let a;
@@ -36,18 +40,11 @@ let appData = {
             appData.expenses[a] = b;
         }
     },
-    budget: money,
-    budgetDay: 0,
-    budgetMonth: 0,
-    expensesMonth: 0,
     getExpensesMonth: function (){
-        let sum = 0;
-        let a = appData.expenses;
-        for (let key in a) {
-            let c = Number(a[key]);
-            sum += c;
+        for (let key in appData.expenses) {
+            let c = Number(appData.expenses[key]);
+            appData.expensesMonth += c;
         }
-        appData.expensesMonth = sum;
         return appData.expensesMonth;
     },
     getBudget: function(){ 
