@@ -19,6 +19,8 @@ let appData = {
     expenses: {},
     addExpenses: [],
     deposit: false,
+    percentDeposit: 0,
+    moneyDeposit: 0,
     mission: 100000,
     period: 5,
     budget: money,
@@ -26,6 +28,17 @@ let appData = {
     budgetMonth: 0,
     expensesMonth: 0,
     asking: function(){
+
+        if (confirm('Есть ли у вас дополнительный источник заработок?')){
+            let itemIncome = prompt('Какой у вас дополнительный заработок?');
+            let cashIncome;
+            do {
+                cashIncome = prompt('Сколько в месяц вы зарабатываете на этом?');
+            }
+            while(!isNumber(cashIncome));
+            appData.income[itemIncome] = cashIncome;
+        }
+
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
         let a;
         let b;
@@ -72,14 +85,36 @@ let appData = {
             return ('Что-то пошло не так');
         }
     },
+    getInfoDeposit: function(){
+        if(appData.deposit){
+            do {
+                appData.percentDeposit = prompt('Какой годовой процент?');
+            }
+            while(!isNumber(appData.percentDeposit));
+            do {
+                appData.moneyDeposit = prompt('Какая сумма заложена?');
+            }
+            while (!isNumber(appData.moneyDeposit));
+        }
+    },
+    calcSavedMoney: function (){
+        return appData.budgetMonth * appData.period;
+    }
 };
 appData.asking();
 appData.getExpensesMonth();
 appData.getBudget();
 appData.getTargetMonth();
 appData.getStatusIncome();
+appData.getInfoDeposit();
 console.log(appData);
 
 console.log(appData.expensesMonth);
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
+
+let str = String(appData.addExpenses).replace(/,/g, ', ');
+function capitalize(str) {
+ return str.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase();});
+}
+console.log(capitalize(str));
