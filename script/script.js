@@ -27,20 +27,10 @@ let appData = {
     period: 5,
     asking: function(){
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-        appData.addExpenses = addExpenses.toLowerCase().split(', ');
-        appData.deposit = confirm('Есть ли у вас депозит в банке?');
-
-
-    },
-    budget: money,
-    budgetDay: 0,
-    budgetMonth: 0,
-    expensesMonth: 0,
-    getExpensesMonth: function (){
         let a;
         let b;
-        let c;
-        let sum = 0;
+        appData.addExpenses = addExpenses.toLowerCase().split(', ');
+        appData.deposit = confirm('Есть ли у вас депозит в банке?');
         for (let i =0; i < 2; i++) {
             a = prompt('Введите обязательную статью расходов');
             do {
@@ -48,26 +38,20 @@ let appData = {
             }
             while (!isNumber(b));
             appData.expenses[a] = b;
-            c = Number(b);
+        }
+    },
+    budget: money,
+    budgetDay: 0,
+    budgetMonth: 0,
+    expensesMonth: 0,
+    getExpensesMonth: function (){
+        let sum = 0;
+        let a = appData.expenses;
+        for (let key in a) {
+            let c = Number(a[key]);
             sum += c;
         }
-        console.log(sum);
         return sum;
-
-        // let expenses = [];
-        // let sum = 0;
-        // let b = 0;
-        // for(let i = 0; i < 2; i++){
-        //     expenses[i] = prompt('Введите обязательную статью расходов');
-        //     do {
-        //         b = prompt('Во сколько это обойдется?');
-        //     }
-        //     while (!isNumber(b));
-        //     let c = Number(b);
-        //     sum += c;
-        // }
-        // console.log(expenses);
-        // return sum;
     },
     getAccumulatedMonth: function(){
         return money - expensesAmount;
@@ -100,9 +84,9 @@ console.log(appData);
 
 budgetDay = money/30;
 
-expensesAmount = appData.getExpensesMonth();
+appData.expensesMonth = appData.getExpensesMonth(); // expensesAmount
 
-console.log(expensesAmount);
+console.log(appData.expensesMonth); // expensesAmount
 
 accumulatedMonth  = appData.getAccumulatedMonth();
 
