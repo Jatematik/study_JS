@@ -42,7 +42,7 @@ let appData = {
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
         let a;
         let b;
-        appData.addExpenses = addExpenses.toLowerCase().split(', ');
+        appData.addExpenses = addExpenses.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase();});
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
         for (let i =0; i < 2; i++) {
             a = prompt('Введите обязательную статью расходов');
@@ -112,9 +112,4 @@ console.log(appData);
 console.log(appData.expensesMonth);
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
-
-let str = String(appData.addExpenses).replace(/,/g, ', ');
-function capitalize(str) {
- return str.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase();});
-}
-console.log(capitalize(str));
+console.log(appData.addExpenses);
