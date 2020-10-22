@@ -101,6 +101,26 @@ let appData = {
         return appData.budgetMonth * appData.period;
     }
 };
+
+const calculateBtn = document.querySelector('#start'),
+    firstPlus = document.querySelector('.income>button'),
+    secondPlus = document.querySelector('.expenses>button'),
+    depositCheck = document.querySelector('#deposit-check'),
+    additionalIncome = document.querySelectorAll('.additional_income-item'),
+    dayBudget = document.getElementsByClassName('budget_day-value')[0],
+    monthConsumption = document.getElementsByClassName('expenses_month-value')[0],
+    possibleIncome = document.getElementsByClassName('additional_income-value')[0],
+    possibleCosts = document.getElementsByClassName('additional_expenses-value')[0],
+    incomePeriod = document.getElementsByClassName('income_period-value')[0],
+    monthTarget = document.getElementsByClassName('target_month-value')[0],
+    salaryAmount = document.querySelector('.salary-amount'),
+    incomeAdd = document.querySelector('.income-title'),
+    incomeAmount = document.querySelector('.income-amount'),
+    expensesObligatory = document.querySelector('.expenses-title'),
+    expensesAmount = document.querySelector('.expenses-amount'),
+    targetAmount = document.querySelector('.target-amount'),
+    periodSelect = document.querySelector('.period-select');
+
 appData.asking();
 appData.getExpensesMonth();
 appData.getBudget();
