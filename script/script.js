@@ -102,24 +102,43 @@ let appData = {
     }
 };
 
-const calculateBtn = document.querySelector('#start'),
-    firstPlus = document.querySelector('.income>button'),
-    secondPlus = document.querySelector('.expenses>button'),
-    depositCheck = document.querySelector('#deposit-check'),
-    additionalIncome = document.querySelectorAll('.additional_income-item'),
-    dayBudget = document.getElementsByClassName('budget_day-value')[0],
-    monthConsumption = document.getElementsByClassName('expenses_month-value')[0],
-    possibleIncome = document.getElementsByClassName('additional_income-value')[0],
-    possibleCosts = document.getElementsByClassName('additional_expenses-value')[0],
-    incomePeriod = document.getElementsByClassName('income_period-value')[0],
-    monthTarget = document.getElementsByClassName('target_month-value')[0],
-    salaryAmount = document.querySelector('.salary-amount'),
-    incomeAdd = document.querySelector('.income-title'),
-    incomeAmount = document.querySelector('.income-amount'),
-    expensesObligatory = document.querySelector('.expenses-title'),
-    expensesAmount = document.querySelector('.expenses-amount'),
-    targetAmount = document.querySelector('.target-amount'),
-    periodSelect = document.querySelector('.period-select');
+const calculateBtn = document.getElementById('start');
+const firstPlus = document.getElementsByTagName('button')[0];
+const secondPlus = document.getElementsByTagName('button')[1];
+const depositCheck = document.querySelector('#deposit-check');
+const additionalIncome = document.querySelectorAll('.additional_income-item');
+const dayBudget = document.getElementsByClassName('budget_day-value')[0];
+const monthConsumption = document.getElementsByClassName('expenses_month-value')[0];
+const possibleIncome = document.getElementsByClassName('additional_income-value')[0];
+const possibleCosts = document.getElementsByClassName('additional_expenses-value')[0];
+const incomePeriod = document.getElementsByClassName('income_period-value')[0];
+const monthTarget = document.getElementsByClassName('target_month-value')[0];
+const salaryAmount = document.querySelector('.salary-amount');
+const incomeAdd = document.querySelector('.income-items .income-title');
+const incomeAmount = document.querySelector('.income-amount');
+const expensesObligatory = document.querySelector('.expenses-items .expenses-title');
+const expensesAmount = document.querySelector('.expenses-amount');
+const targetAmount = document.querySelector('.target-amount');
+const periodSelect = document.querySelector('.period-select');
+
+console.log(calculateBtn);
+console.log(firstPlus);
+console.log(secondPlus);
+console.log(depositCheck);
+console.log(additionalIncome);
+console.log(dayBudget);
+console.log(monthConsumption);
+console.log(possibleIncome);
+console.log(possibleCosts);
+console.log(incomePeriod);
+console.log(monthTarget);
+console.log(salaryAmount);
+console.log(incomeAdd);
+console.log(incomeAmount);
+console.log(expensesObligatory);
+console.log(expensesAmount);
+console.log(targetAmount);
+console.log(periodSelect);
 
 appData.asking();
 appData.getExpensesMonth();
