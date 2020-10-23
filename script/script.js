@@ -107,6 +107,7 @@ const firstPlus = document.getElementsByTagName('button')[0];
 const secondPlus = document.getElementsByTagName('button')[1];
 const depositCheck = document.querySelector('#deposit-check');
 const additionalIncome = document.querySelectorAll('.additional_income-item');
+const monthBudget = document.getElementsByClassName('budget_month-value')[0];
 const dayBudget = document.getElementsByClassName('budget_day-value')[0];
 const monthConsumption = document.getElementsByClassName('expenses_month-value')[0];
 const possibleIncome = document.getElementsByClassName('additional_income-value')[0];
@@ -120,12 +121,14 @@ const expensesObligatory = document.querySelector('.expenses-items .expenses-tit
 const expensesAmount = document.querySelector('.expenses-amount');
 const targetAmount = document.querySelector('.target-amount');
 const periodSelect = document.querySelector('.period-select');
+const additionalExpensesItem = document.querySelector('.additional_expenses-item');
 
 console.log(calculateBtn);
 console.log(firstPlus);
 console.log(secondPlus);
 console.log(depositCheck);
 console.log(additionalIncome);
+console.log(monthBudget);
 console.log(dayBudget);
 console.log(monthConsumption);
 console.log(possibleIncome);
@@ -139,6 +142,7 @@ console.log(expensesObligatory);
 console.log(expensesAmount);
 console.log(targetAmount);
 console.log(periodSelect);
+console.log(additionalExpensesItem);
 
 appData.asking();
 appData.getExpensesMonth();
