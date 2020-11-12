@@ -203,22 +203,13 @@ class AppData {
                 expensesItems[2].parentNode.removeChild(expensesItems[2]);
             }
         }
-        this.income = {};
-        this.incomeMonth = 0;
-        this.addIncome = [];
-        this.expenses = {};
-        this.addExpenses = [];
-        this.deposit = false;
-        this.percentDeposit = 0;
-        this.moneyDeposit = 0;
-        this.budget = 0;
-        this.budgetDay = 0;
-        this.budgetMonth = 0;
-        this.expensesMonth = 0;
-        depositCheck.checked = false;
-        periodSelect.value = 1;
-        this.getPeriod();
 
+        const appDataReset = new AppData();
+        Object.assign(this, appDataReset);
+        
+        periodSelect.value = 1;
+        const periodAmount = document.querySelector('.period-amount');
+        periodAmount.textContent = periodSelect.value;
         calculateBtn.style.display = 'block';
         resetBtn.style.display = 'none';
         firstPlus.disabled = false;
@@ -233,16 +224,17 @@ class AppData {
         }
         _this.start();
         });
-            secondPlus.addEventListener('click', _this.addExpensesBlock);
-            firstPlus.addEventListener('click', _this.addIncomeBlock);
-            periodSelect.addEventListener('input', _this.getPeriod);
-            resetBtn.addEventListener('click', function(){
-            _this.reset();
-        });
+        secondPlus.addEventListener('click', this.addExpensesBlock);
+        firstPlus.addEventListener('click', this.addIncomeBlock);
+        periodSelect.addEventListener('input', this.getPeriod);
+        resetBtn.addEventListener('click', this.reset);
     }
 }
 
+
 const appData = new AppData();
 appData.eventsListeners();
+
+
 
 
