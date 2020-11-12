@@ -205,7 +205,7 @@ class AppData {
         }
 
         const appDataReset = new AppData();
-        Object.assign(this, appDataReset);
+        Object.assign(appData, appDataReset);
         
         periodSelect.value = 1;
         const periodAmount = document.querySelector('.period-amount');
