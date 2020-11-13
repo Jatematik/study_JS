@@ -165,10 +165,11 @@ class AppData {
     }
     getInfoDeposit(){
         if(this.deposit){
+            let a = depositPercent.value;
             if (depositBank.value === 'other') {
-                depositPercent.value = depositPercent.value / 100;
+                a = depositPercent.value / 100;
             }
-            this.percentDeposit = depositPercent.value;
+            this.percentDeposit = a;
             this.moneyDeposit = depositAmount.value;
         }
     }
@@ -243,6 +244,7 @@ class AppData {
         } else {
             depositBank.style.display = 'none';
             depositAmount.style.display = 'none';
+            depositPercent.style.display = 'none';
             depositBank.value = 0;
             depositAmount.value = '';
             this.deposit = false;
